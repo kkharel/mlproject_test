@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import DataTransformation, DataTransformationConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -52,3 +53,6 @@ if __name__ == "__main__":
     obj = DataIngestion()
     train_data, test_data, raw_data = obj.initiate_data_ingestion()
     print(train_data, test_data, raw_data)  # For testing purposes
+
+    data_transformation = DataTransformation()
+    preprocessor = data_transformation.initiate_data_transformation(train_data, test_data)
